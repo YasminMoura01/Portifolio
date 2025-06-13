@@ -1,0 +1,90 @@
+/* Estilos personalizados para a página da matéria */
+
+.subject-header {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    color: white;
+    padding: 3rem 0;
+    margin-bottom: 2rem;
+    border-radius: 0 0 10px 10px;
+}
+
+.project-card {
+    transition: transform 0.3s;
+    margin-bottom: 20px;
+    height: 100%;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.badge {
+    margin-right: 5px;
+    margin-bottom: 5px;
+    font-weight: normal;
+    padding: 5px 10px;
+}
+
+/* Estilos para o menu ativo */
+.navbar-nav .nav-link.active {
+    font-weight: bold;
+    position: relative;
+}
+
+.navbar-nav .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 2px;
+    background-color: white;
+}
+
+/* Espaçamento para seções */
+section {
+    padding: 2rem 0;
+}
+
+/* Estilo para os links do rodapé */
+footer a {
+    transition: opacity 0.3s;
+    text-decoration: none;
+}
+
+footer a:hover {
+    opacity: 0.8;
+}
+
+/* Responsividade para o cabeçalho */
+@media (max-width: 768px) {
+    .subject-header {
+        padding: 2rem 0;
+    }
+    
+    .subject-header h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Estilo para a lista de conteúdo programático */
+.list-group-item {
+    border-left: none;
+    border-right: none;
+}
+
+.list-group-item:first-child {
+    border-top: none;
+}
+
+.list-group-item:last-child {
+    border-bottom: none;
+}
+
+.list-group-item:hover {
+    background-color: #f8f9fa;
+}
