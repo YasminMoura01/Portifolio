@@ -1,37 +1,16 @@
- body {
-            padding-top: 60px;
-        }
-        .section {
-            padding: 60px 0;
-        }
-        .section-title {
-            margin-bottom: 40px;
-            text-align: center;
-        }
-        .curriculum-table {
-            margin-bottom: 40px;
-        }
-        .profile-img {
-            max-width: 200px;
-            border-radius: 50%;
-            margin: 0 auto 20px;
-            display: block;
-        }
-
-        .period-btn.active {
-        background-color: #0b5ed7;
-        border-color: #0a58ca;
-        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
-
-        
-    }
-
-    /* Estilos Gerais */
+/* Estilos Gerais */
 body {
+    padding-top: 70px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #333;
-    padding-top: 70px;
+}
+
+/* Cores Principais */
+:root {
+    --vermelho-principal: #dc3545;
+    --vermelho-escuro: #a71d2a;
+    --vermelho-claro: #f8d7da;
 }
 
 /* Navbar */
@@ -59,7 +38,7 @@ section {
 }
 
 .hero-section {
-    background-color: #f8f9fa;
+    background-color: #fff0f0;
 }
 
 .sobre-section {
@@ -106,6 +85,21 @@ h1, h2, h3, h4, h5, h6 {
     padding: 1.5rem;
 }
 
+/* Grade Curricular */
+.grade-section a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.grade-section a:hover {
+    color: inherit;
+}
+
+.grade-section a:hover .card {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
 /* Abas */
 .nav-tabs {
     border-bottom: none;
@@ -119,9 +113,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-tabs .nav-link.active {
-    color: #0d6efd;
+    color: var(--vermelho-principal);
     background-color: transparent;
-    border-bottom: 3px solid #0d6efd;
+    border-bottom: 3px solid var(--vermelho-principal);
 }
 
 /* Timeline */
@@ -165,32 +159,45 @@ h1, h2, h3, h4, h5, h6 {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: #0d6efd;
+    background: var(--vermelho-principal);
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    .display-4 {
-        font-size: 2rem;
-    }
-    
-    section {
-        padding: 60px 0;
-    }
-}
-
-/* Cores personalizadas */
-.text-primary {
-    color: #0d6efd !important;
-}
-
+/* Botões */
 .btn-primary {
-    background-color: #0d6efd;
-    border-color: #0d6efd;
+    background-color: var(--vermelho-principal);
+    border-color: var(--vermelho-principal);
 }
 
+.btn-primary:hover {
+    background-color: var(--vermelho-escuro);
+    border-color: var(--vermelho-escuro);
+}
+
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary.active,
+.btn-primary:focus-visible,
+.btn-primary:not(:disabled):not(.disabled):active {
+    background-color: var(--vermelho-escuro) !important;
+    border-color: var(--vermelho-escuro) !important;
+    box-shadow: 0 0 0 0.25rem rgba(167, 29, 42, 0.5) !important;
+}
+
+.btn-primary:disabled {
+    background-color: var(--vermelho-escuro);
+    border-color: var(--vermelho-escuro);
+    opacity: 0.8;
+}
+
+/* Campos de Formulário */
+.form-control:focus {
+    border-color: var(--vermelho-escuro);
+    box-shadow: 0 0 0 0.25rem rgba(167, 29, 42, 0.25);
+}
+
+/* Ícones */
 .fa-check {
-    color: #0d6efd;
+    color: var(--vermelho-principal);
 }
 
 /* Links de contato */
@@ -201,3 +208,801 @@ h1, h2, h3, h4, h5, h6 {
 .contato-section a:hover {
     color: #adb5bd;
 }
+
+/* Container das imagens */
+.img-container {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: inline-block;
+}
+
+/* Primeira imagem (Hero) */
+.hero-section .img-container {
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 15px;
+}
+
+.hero-section img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 15px;
+    border: 3px solid var(--vermelho-principal);
+    box-shadow: 0 5px 15px rgba(220, 53, 69, 0.3);
+}
+
+/* Segunda imagem (Sobre) */
+.sobre-section .img-container {
+    width: 320px;
+    height: 320px;
+    margin: 0 auto 30px;
+    border-radius: 10px;
+    border: 3px solid var(--vermelho-principal);
+    box-shadow: 0 5px 15px rgba(220, 53, 69, 0.3);
+}
+
+.sobre-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 7px; /* Um pouco menor que o container */
+}
+
+/* Efeito hover nas imagens */
+.hero-section .img-container:hover,
+.sobre-section .img-container:hover {
+    transform: scale(1.05) rotate(3deg);
+    box-shadow: 0 8px 25px rgba(220, 53, 69, 0.4);
+}
+
+/* Efeito de moldura interna */
+.img-container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 3px solid transparent;
+    border-radius: inherit;
+    transition: all 0.4s ease;
+    pointer-events: none;
+}
+
+.img-container:hover::after {
+    inset: 8px;
+    border-color: var(--vermelho-escuro);
+}
+
+/* Layout da seção Sobre */
+.sobre-section .row {
+    align-items: flex-start;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .sobre-section .img-container {
+        width: 280px;
+        height: 280px;
+    }
+}
+
+@media (max-width: 768px) {
+    .display-4 {
+        font-size: 2rem;
+    }
+    
+    section {
+        padding: 60px 0;
+    }
+    
+    .hero-section {
+        text-align: center;
+    }
+    
+    .hero-section .img-container {
+        max-width: 280px;
+        margin-top: 20px;
+    }
+    
+    .sobre-section .img-container {
+        width: 250px;
+        height: 250px;
+        margin-bottom: 20px;
+    }
+    
+    .sobre-section .row > div {
+        order: 0;
+    }
+}
+
+/* Efeitos extras */
+.navbar-nav .nav-link.active {
+    position: relative;
+}
+
+.navbar-nav .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 2px;
+    background-color: var(--vermelho-principal);
+}
+
+/* Efeito para o nome no hero */
+.hero-section span {
+    color: var(--vermelho-principal);
+    font-weight: 800;
+}
+
+/* Timeline com tons de vermelho mais escuros */
+.timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline-item {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.timeline-date {
+    font-weight: 600;
+    color: #fff; /* Texto branco para contraste */
+    margin-bottom: 8px;
+    background-color: rgba(220, 53, 69, 0.8); /* Vermelho principal mais opaco */
+    padding: 5px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    box-shadow: 0 2px 5px rgba(167, 29, 42, 0.3);
+}
+
+.timeline-content {
+    background: rgba(248, 215, 218, 0.3); /* Vermelho claro mais intenso */
+    padding: 18px;
+    border-radius: 10px;
+    border-left: 4px solid var(--vermelho-escuro); /* Borda mais grossa */
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(220, 53, 69, 0.1);
+}
+
+.timeline-content:hover {
+    background: rgba(248, 215, 218, 0.4);
+    transform: translateX(8px);
+    box-shadow: 0 5px 15px rgba(220, 53, 69, 0.2);
+}
+
+.timeline-item:before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 0;
+    width: 3px; /* Linha mais grossa */
+    height: 100%;
+    background: linear-gradient(to bottom, 
+        var(--vermelho-escuro), 
+        var(--vermelho-principal));
+}
+
+.timeline-item:after {
+    content: '';
+    position: absolute;
+    left: -23px; /* Ajuste de posição */
+    top: 8px;
+    width: 14px; /* Bolinha maior */
+    height: 14px;
+    border-radius: 50%;
+    background: var(--vermelho-escuro);
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.3);
+    border: 2px solid #fff;
+}
+
+/* Card da timeline mais destacado */
+.card.timeline-card {
+    border: 2px solid rgba(220, 53, 69, 0.2);
+    background-color: rgba(248, 215, 218, 0.15);
+}
+
+.card.timeline-card .card-body {
+    background-color: transparent;
+}
+
+.card.timeline-card h4 {
+    color: var(--vermelho-escuro);
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(220, 53, 69, 0.2);
+}
+
+/* Estilo para os cards das matérias */
+.grade-section .card {
+    border: 2px solid rgba(220, 53, 69, 0.15);
+    border-radius: 12px;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    background-color: rgba(248, 215, 218, 0.1);
+    overflow: hidden;
+    position: relative;
+}
+
+.grade-section .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--vermelho-principal);
+    transition: all 0.3s ease;
+}
+
+.grade-section .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(220, 53, 69, 0.15);
+    border-color: rgba(220, 53, 69, 0.3);
+    background-color: rgba(248, 215, 218, 0.2);
+}
+
+.grade-section .card:hover::before {
+    width: 8px;
+    background: var(--vermelho-escuro);
+}
+
+.grade-section .card-body {
+    padding: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.grade-section .card-title {
+    color: var(--vermelho-escuro);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-left: 15px;
+}
+
+.grade-section .card-title::before {
+    content: '•';
+    color: var(--vermelho-principal);
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.5em;
+    line-height: 0.9;
+}
+
+.grade-section a:hover .card-title {
+    color: var(--vermelho-principal);
+    transform: translateX(5px);
+}
+
+/* Efeito de brilho ao passar o mouse */
+.grade-section .card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, 
+                rgba(220, 53, 69, 0.1) 0%, 
+                transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.grade-section .card:hover::after {
+    opacity: 1;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .grade-section .card {
+        margin-bottom: 15px;
+    }
+    
+    .grade-section .card-title {
+        font-size: 1rem;
+    }
+}
+
+/* Menu Moderno e Estiloso */
+.navbar {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    padding: 0.8rem 1rem;
+    border-bottom: none;
+    transition: all 0.4s ease;
+}
+
+.navbar.scrolled {
+    background: rgba(26, 26, 26, 0.95) !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 1rem;
+}
+
+.navbar-brand {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: white !important;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand i {
+    color: var(--vermelho-principal);
+    margin-right: 10px;
+    font-size: 1.8rem;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+    transform: translateX(5px);
+}
+
+.navbar-brand:hover i {
+    transform: rotate(15deg);
+}
+
+.navbar-nav {
+    gap: 5px;
+}
+
+.nav-link {
+    font-weight: 500;
+    padding: 0.7rem 1.2rem !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    margin: 0 3px;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--vermelho-principal);
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: white !important;
+    background-color: rgba(255, 255, 255, 0.05);
+    transform: translateY(-2px);
+}
+
+.nav-link:hover::before {
+    width: 100%;
+}
+
+.nav-link.active {
+    color: white !important;
+    font-weight: 600;
+    background-color: rgba(220, 53, 69, 0.15);
+}
+
+.nav-link.active::before {
+    width: 100%;
+    background-color: var(--vermelho-principal);
+}
+
+/* Ícones sociais */
+.nav-item.social-icons .nav-link {
+    padding: 0.7rem !important;
+    margin: 0 5px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.nav-item.social-icons .nav-link:hover {
+    background-color: var(--vermelho-principal);
+    transform: translateY(-3px) scale(1.1);
+}
+
+.nav-item.social-icons .nav-link i {
+    font-size: 1.2rem;
+}
+
+/* Menu hamburguer personalizado */
+.navbar-toggler {
+    border: none;
+    padding: 0.5rem;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.navbar-toggler-icon {
+    background-image: none;
+    position: relative;
+    width: 24px;
+    height: 2px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background-color: white;
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+.navbar-toggler-icon::before {
+    transform: translateY(-7px);
+}
+
+.navbar-toggler-icon::after {
+    transform: translateY(7px);
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    background-color: transparent;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+    transform: rotate(45deg);
+    background-color: var(--vermelho-principal);
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+    transform: rotate(-45deg);
+    background-color: var(--vermelho-principal);
+}
+
+/* Efeito no scroll */
+.navbar.scrolled .nav-link {
+    padding: 0.5rem 1rem !important;
+}
+
+/* Menu dropdown (caso precise no futuro) */
+.dropdown-menu {
+    background-color: #2d2d2d;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    padding: 0.5rem 0;
+}
+
+.dropdown-item {
+    color: rgba(255, 255, 255, 0.8);
+    padding: 0.5rem 1.5rem;
+    transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(220, 53, 69, 0.2);
+    color: white;
+}
+
+.dropdown-divider {
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Seção de Contato - Estilo combinando com a navbar */
+.contato-section {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    color: white;
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.contato-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--vermelho-principal);
+}
+
+.contato-section h2 {
+    font-weight: 700;
+    margin-bottom: 50px;
+    position: relative;
+    display: inline-block;
+}
+
+.contato-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50%;
+    height: 3px;
+    background: var(--vermelho-principal);
+}
+
+/* Formulário de contato */
+.contato-section .form-control {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    padding: 12px 15px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.contato-section .form-control:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+    color: white;
+}
+
+.contato-section .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.contato-section textarea.form-control {
+    min-height: 150px;
+}
+
+/* Botão do formulário */
+.contato-section .btn-primary {
+    background-color: var(--vermelho-principal);
+    border: none;
+    padding: 12px 30px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.contato-section .btn-primary:hover {
+    background-color: var(--vermelho-escuro);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(220, 53, 69, 0.4);
+}
+
+/* Informações de contato */
+.contato-info {
+    padding-left: 30px;
+}
+
+.contato-info h4 {
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: white;
+    position: relative;
+}
+
+.contato-info h4::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: var(--vermelho-principal);
+}
+
+.contato-info .info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 25px;
+}
+
+.contato-info .info-item i {
+    font-size: 20px;
+    color: var(--vermelho-principal);
+    margin-right: 15px;
+    margin-top: 3px;
+}
+
+.contato-info .info-item .info-content h5 {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.contato-info .info-item .info-content p,
+.contato-info .info-item .info-content a {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0;
+    transition: all 0.3s ease;
+}
+
+.contato-info .info-item .info-content a:hover {
+    color: var(--vermelho-principal);
+    text-decoration: none;
+}
+
+/* Redes sociais */
+.social-links {
+    display: flex;
+    margin-top: 30px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    margin-right: 15px;
+    color: white;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: var(--vermelho-principal);
+    transform: translateY(-3px);
+}
+
+/* Footer - Estilo combinado */
+.footer {
+    background: #1a1a1a;
+    color: white;
+    padding: 30px 0 20px;
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--vermelho-principal);
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.footer-logo i {
+    font-size: 24px;
+    color: var(--vermelho-principal);
+    margin-right: 10px;
+}
+
+.footer-logo span {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0 15px;
+    transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--vermelho-principal);
+    text-decoration: none;
+}
+
+.footer-social {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.footer-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    margin: 0 10px;
+    color: white;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.footer-social a:hover {
+    background-color: var(--vermelho-principal);
+    transform: translateY(-3px);
+}
+
+.footer-copyright {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .contato-info {
+        padding-left: 0;
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contato-section {
+        padding: 60px 0;
+    }
+    
+    .footer-links a {
+        margin: 0 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-links {
+        flex-direction: column;
+    }
+    
+    .footer-links a {
+        margin: 5px 0;
+    }
+    
+    .footer-social a {
+        margin: 0 8px;
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+    }
+}
+
+/* Adicione isso ao seu CSS */
+.nav-link.active {
+    color: white !important;
+    font-weight: 600;
+    background-color: rgba(220, 53, 69, 0.2);
+    position: relative;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 3px;
+    background-color: var(--vermelho-principal);
+    border-radius: 3px;
+}
+
+/* Remove o estilo padrão do Bootstrap */
+.navbar-dark .navbar-nav .nav-link.active {
+    color: white;
+}
+

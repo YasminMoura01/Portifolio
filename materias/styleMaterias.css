@@ -1,90 +1,346 @@
-/* Estilos personalizados para a página da matéria */
+/* Estilos personalizados para as páginas de matérias */
 
+/* Cabeçalho da matéria */
 .subject-header {
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
     color: white;
-    padding: 3rem 0;
-    margin-bottom: 2rem;
-    border-radius: 0 0 10px 10px;
-}
-
-.project-card {
-    transition: transform 0.3s;
-    margin-bottom: 20px;
-    height: 100%;
-    border: none;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-}
-
-.badge {
-    margin-right: 5px;
-    margin-bottom: 5px;
-    font-weight: normal;
-    padding: 5px 10px;
-}
-
-/* Estilos para o menu ativo */
-.navbar-nav .nav-link.active {
-    font-weight: bold;
+    padding: 80px 0;
     position: relative;
+    margin-bottom: 40px;
 }
 
-.navbar-nav .nav-link.active::after {
+.subject-header::before {
     content: '';
     position: absolute;
-    bottom: 5px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50%;
-    height: 2px;
-    background-color: white;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--vermelho-principal);
 }
 
-/* Espaçamento para seções */
-section {
-    padding: 2rem 0;
+.subject-divider {
+    width: 100px;
+    height: 3px;
+    background: var(--vermelho-principal);
+    margin: 20px auto;
+    border-radius: 3px;
 }
 
-/* Estilo para os links do rodapé */
-footer a {
-    transition: opacity 0.3s;
-    text-decoration: none;
+/* Cards de projetos */
+.card {
+    border: 1px solid var(--borda-clara);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    overflow: hidden;
 }
 
-footer a:hover {
-    opacity: 0.8;
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-color: var(--vermelho-principal);
 }
 
-/* Responsividade para o cabeçalho */
-@media (max-width: 768px) {
-    .subject-header {
-        padding: 2rem 0;
-    }
-    
-    .subject-header h1 {
-        font-size: 2rem;
-    }
+.card-img-container {
+    overflow: hidden;
+    height: 200px;
 }
 
-/* Estilo para a lista de conteúdo programático */
+.card-img-top {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+/* Badges */
+.badge.bg-custom {
+    background-color: var(--vermelho-principal) !important;
+    color: white;
+    font-weight: 500;
+}
+
+/* Alertas */
+.alert-custom {
+    background-color: rgba(220, 53, 69, 0.1);
+    border-left: 4px solid var(--vermelho-principal);
+    color: var(--texto-escuro);
+}
+
+/* Lista de conteúdos */
 .list-group-item {
-    border-left: none;
-    border-right: none;
-}
-
-.list-group-item:first-child {
-    border-top: none;
-}
-
-.list-group-item:last-child {
-    border-bottom: none;
+    border: 1px solid var(--borda-clara);
+    padding: 1rem 1.25rem;
+    transition: all 0.3s ease;
 }
 
 .list-group-item:hover {
+    background-color: rgba(220, 53, 69, 0.05);
+    border-color: var(--vermelho-principal);
+    transform: translateX(5px);
+}
+
+.list-group-item i {
+    color: var(--vermelho-principal);
+    transition: transform 0.3s ease;
+}
+
+.list-group-item:hover i {
+    transform: translateX(3px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .subject-header {
+        padding: 60px 0;
+    }
+    
+    .subject-header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .card-img-container {
+        height: 180px;
+    }
+}
+
+/* Ajustes para o menu ativo na página de matéria */
+.navbar-nav .nav-link.active {
+    background-color: rgba(220, 53, 69, 0.15) !important;
+}
+
+.navbar-nav .nav-link.active::after {
+    background-color: var(--vermelho-principal) !important;
+}
+
+/* Estilos para a seção de projetos */
+.projects-section {
+    background-color: #fff;
+}
+
+.section-title {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--vermelho-principal);
+    border-radius: 2px;
+}
+
+.project-card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(220, 53, 69, 0.15);
+}
+
+.card-img-container {
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .card-img-top {
+    transform: scale(1.1);
+}
+
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover .card-overlay {
+    opacity: 1;
+}
+
+.tech-badges .badge {
+    margin-right: 5px;
+    margin-bottom: 5px;
+    font-weight: 500;
+    font-size: 0.75rem;
+    padding: 0.35em 0.65em;
+}
+
+.project-links a {
+    color: #6c757d;
+    transition: color 0.3s ease;
+    margin-left: 10px;
+}
+
+.project-links a:hover {
+    color: var(--vermelho-principal);
+}
+
+.coming-soon-card {
+    border: 2px dashed #dee2e6;
     background-color: #f8f9fa;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+}
+
+.coming-soon-card:hover {
+    border-color: var(--vermelho-principal);
+    background-color: rgba(220, 53, 69, 0.05);
+    transform: translateY(-5px);
+}
+
+/* Estilos para a seção de conteúdos */
+.contents-section {
+    background-color: #f8f9fa;
+}
+
+.custom-accordion .accordion-button {
+    background-color: white;
+    border-radius: 8px !important;
+    padding: 1.25rem 1.5rem;
+    font-weight: 600;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eee;
+    color: #333;
+}
+
+.custom-accordion .accordion-button:not(.collapsed) {
+    background-color: white;
+    color: var(--vermelho-principal);
+    box-shadow: 0 2px 15px rgba(220, 53, 69, 0.1);
+    border-color: var(--vermelho-principal);
+}
+
+.custom-accordion .accordion-button::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23333'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.custom-accordion .accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23dc3545'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.custom-accordion .accordion-body {
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 0 0 8px 8px;
+    border: 1px solid #eee;
+    border-top: none;
+}
+
+.custom-accordion .accordion-item:not(:last-child) {
+    margin-bottom: 15px;
+}
+
+.custom-accordion .accordion-button span:first-child {
+    color: var(--vermelho-principal);
+    font-weight: 700;
+    min-width: 24px;
+    text-align: center;
+}
+
+/* Cabeçalho da matéria */
+.subject-header {
+    background: linear-gradient(135deg, rgba(220, 53, 69, 0.1) 0%, rgba(248, 215, 218, 0.2) 100%);
+    color: #333;
+    padding: 80px 0;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.subject-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--vermelho-principal);
+}
+
+.subject-divider {
+    width: 100px;
+    height: 3px;
+    background: var(--vermelho-principal);
+    margin: 20px auto;
+    border-radius: 3px;
+}
+
+/* Estilos para a seção de conteúdos */
+.contents-section {
+    background-color: rgba(220, 53, 69, 0.05); /* Fundo vermelho claro */
+    border: 2px solid var(--vermelho-principal); /* Borda vermelha */
+    border-radius: 10px; /* Cantos arredondados */
+    padding: 30px; /* Espaçamento interno */
+    margin: 20px 0; /* Margem superior e inferior */
+}
+
+.section-title::after {
+    background: white; /* Alterando a linha sob o título para branco para contrastar */
+}
+
+/* Opcional: Ajuste o título para ficar mais visível sobre o fundo vermelho claro */
+.contents-section h2 {
+    color: var(--vermelho-principal);
+}
+
+/* Efeito hover para os ITENS DO ACCORDION (Conteúdos Abordados) */
+.custom-accordion .accordion-item {
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+    margin-bottom: 15px;
+}
+
+.custom-accordion .accordion-item:hover {
+    border-color: var(--vermelho-principal);
+    background-color: rgba(220, 53, 69, 0.05);
+}
+
+.custom-accordion .accordion-button:hover {
+    background-color: rgba(220, 53, 69, 0.1) !important;
+}
+
+/* Efeito hover para os CARDS DE PROJETOS */
+.project-card {
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    border-color: var(--vermelho-principal) !important;
+    background-color: rgba(220, 53, 69, 0.05) !important;
+}
+
+/* Efeito hover para o CARD "EM BREVE" (para referência) */
+.coming-soon-card:hover {
+    border-color: var(--vermelho-principal);
+    background-color: rgba(220, 53, 69, 0.05);
 }
